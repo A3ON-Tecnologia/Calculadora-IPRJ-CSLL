@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Comparativa IRPJ & CSLL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="brand-header">
+            <img src="j:/Público/2. Materiais Padrão JP/Documentos Padrão 2024/LOGOS/logo sem fundo/logo-jp-2023_Prancheta 1 cópia 7.png" alt="JP Contábil" class="brand-logo">
+        </div>
+        <h1>Calculadora Comparativa IRPJ & CSLL</h1>
+        <p class="subtitle">Impacto da Lei Complementar nº 224/2025 no Lucro Presumido</p>
+
+        <div class="form-group">
+            <label>Periodicidade do Cálculo</label>
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="periodicidade" value="trimestral" checked> Trimestral
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="periodicidade" value="anual"> Anual
+                </label>
+            </div>
+        </div>
+
+        <div class="company-fields">
+            <div class="form-group company-field">
+                <label for="empresaNome">Empresa</label>
+                <input type="text" id="empresaNome" placeholder="Nome da empresa">
+            </div>
+            <div class="form-group company-field">
+                <label for="empresaCnpj">CNPJ</label>
+                <input type="text" id="empresaCnpj" placeholder="00.000.000/0000-00">
+            </div>
+        </div>
+
+        <div class="faturamento-container">
+            <div class="faturamento-item">
+                <div class="form-group">
+                    <label class="labelFaturamento" for="faturamento1">Faturamento 1 (Período Selecionado)</label>
+                    <div class="currency-input">
+                        <span class="currency-prefix">R$</span>
+                        <input type="text" id="faturamento1" class="money-input" placeholder="Ex: 0,00" value="0,00">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="atividade1">Atividade 1</label>
+                    <select id="atividade1" class="atividade-select">
+                        <option value="0.32,0.32">Serviços em Geral (32%)</option>
+                        <option value="0.08,0.12">Comércio e Indústria (8% / 12%)</option>
+                        <option value="0.08,0.12">Serviços Hospitalares (8% / 12%)</option>
+                        <option value="0.08,0.12">Transporte de Carga (8% / 12%)</option>
+                        <option value="0.16,0.12">Transporte de Passageiros (16% / 12%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="faturamento-item">
+                <div class="form-group">
+                    <label class="labelFaturamento" for="faturamento2">Faturamento 2 (Período Selecionado)</label>
+                    <div class="currency-input">
+                        <span class="currency-prefix">R$</span>
+                        <input type="text" id="faturamento2" class="money-input" placeholder="Ex: 0,00" value="0,00">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="atividade2">Atividade 2</label>
+                    <select id="atividade2" class="atividade-select">
+                        <option value="0.08,0.12">Comércio e Indústria (8% / 12%)</option>
+                        <option value="0.32,0.32">Serviços em Geral (32%)</option>
+                        <option value="0.08,0.12">Serviços Hospitalares (8% / 12%)</option>
+                        <option value="0.08,0.12">Transporte de Carga (8% / 12%)</option>
+                        <option value="0.16,0.12">Transporte de Passageiros (16% / 12%)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="exportButton" onclick="exportarParaPDF()">Exportar para PDF</button>
+            <button id="clientPresentationButton" class="secondary-button" onclick="apresentarAoCliente()">Apresentar ao cliente</button>
+        </div>
+
+        <div id="results" style="display:none;">
+            <h2>Resultado Comparativo</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr class="faturamento-total-row">
+                        <td style="font-weight: bold; background-color: var(--jp-light-gray);">Faturamento Total</td>
+                        <td colspan="2" id="valorFatTotal" class="right-align" style="font-weight: bold; color: var(--jp-dark-blue); background-color: var(--jp-light-gray);"></td>
+                    </tr>
+                    <tr>
+                        <th style="background-color: #fff;">Descrição</th>
+                        <th class="right-align" style="background-color: #fff;">Antes da Mudança</th>
+                        <th class="right-align" style="background-color: #fff;">Depois da Mudança</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="border:none; padding: 5px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Base de Cálculo IRPJ</td>
+                        <td id="baseIrpjAntes" class="right-align"></td>
+                        <td id="baseIrpjDepois" class="right-align"></td>
+                    </tr>
+                    <tr>
+                        <td>IRPJ (15%)</td>
+                        <td id="irpjAntes" class="right-align"></td>
+                        <td id="irpjDepois" class="right-align"></td>
+                    </tr>
+                    <tr>
+                        <td>Adicional IRPJ (10%)</td>
+                        <td id="adicionalIrpjAntes" class="right-align"></td>
+                        <td id="adicionalIrpjDepois" class="right-align"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total IRPJ</td>
+                        <td id="totalIrpjAntes" class="right-align"></td>
+                        <td id="totalIrpjDepois" class="right-align"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="border:none; padding: 5px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Base de Cálculo CSLL</td>
+                        <td id="baseCsllAntes" class="right-align"></td>
+                        <td id="baseCsllDepois" class="right-align"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total CSLL (9%)</td>
+                        <td id="totalCsllAntes" class="right-align"></td>
+                        <td id="totalCsllDepois" class="right-align"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="border:none; padding: 5px;">&nbsp;</td>
+                    </tr>
+                    <tr class="summary-row">
+                        <td>TOTAL DE IMPOSTOS</td>
+                        <td id="totalGeralAntes" class="right-align"></td>
+                        <td id="totalGeralDepois" class="right-align"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;">Diferença a Pagar</td>
+                        <td colspan="2" id="diferencaFinal" class="right-align"
+                            style="font-weight:bold; color: #c0392b;"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;">Impacto sobre o Faturamento</td>
+                        <td colspan="2" id="percentualImpacto" class="right-align impacto-percentual"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="explanation" class="explanation-box">
+                <h3>Demonstração do Adicional de IRPJ (10%)</h3>
+                <p>O adicional é apurado sobre a base de cálculo trimestral que excede R$ 60.000,00.</p>
+                <div id="expl-antes"></div>
+                <div id="expl-depois"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

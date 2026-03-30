@@ -1,0 +1,252 @@
+/* Cores personalizadas fornecidas pelo usuário */
+:root {
+    --jp-dark-blue: #010969;
+    --jp-orange: #e85909;
+    --jp-light-gray: #f4f7f9;
+    --jp-text-dark: #333333;
+    --jp-text-light: #555555;
+    --white: #ffffff;
+}
+
+body { 
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    margin: 0; 
+    background-color: var(--jp-light-gray); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+.container { 
+    background-color: var(--white); 
+    padding: 35px; 
+    border-radius: 12px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
+    max-width: 800px; 
+    width: 100%;
+    border-top: 5px solid var(--jp-dark-blue);
+    margin-top: -1.5cm;
+}
+.brand-header {
+    display: flex;
+    justify-content: center;
+    margin-top: -1.5cm;
+    margin-bottom: 18px;
+}
+.brand-logo {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+h1 { 
+    color: var(--jp-dark-blue); 
+    text-align: center; 
+    margin-top: -2cm;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.subtitle {
+    text-align:center; 
+    color: var(--jp-text-light); 
+    margin-top:-10px; 
+    margin-bottom:35px;
+}
+.form-group { 
+    margin-bottom: 22px; 
+}
+
+.company-fields {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.company-field {
+    flex: 1;
+    min-width: 260px;
+}
+
+.faturamento-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.faturamento-item {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 5px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--jp-text-dark);
+}
+
+.radio-label input[type="radio"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+.currency-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-input .currency-prefix {
+    position: absolute;
+    left: 12px;
+    color: var(--jp-text-light);
+    font-size: 16px;
+}
+
+.currency-input input {
+    padding-left: 40px;
+}
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 600; 
+    color: var(--jp-dark-blue); 
+}
+input, select { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input:focus, select:focus {
+    border-color: var(--jp-orange);
+    box-shadow: 0 0 0 3px rgba(232, 89, 9, 0.2);
+    outline: none;
+}
+
+.button-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button { 
+    width: auto; 
+    padding: 12px 25px; 
+    background-color: var(--jp-dark-blue); 
+    color: var(--white); 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 14px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+button:hover { 
+    background-color: #01075a;
+    transform: translateY(-2px);
+}
+.secondary-button {
+    background-color: var(--jp-orange);
+}
+.secondary-button:hover {
+    background-color: #cf4f08;
+}
+
+#results { 
+    margin-top: 30px; 
+    border-top: 2px solid #eee; 
+    padding-top: 20px; 
+}
+h2 {
+    color: var(--jp-dark-blue);
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 12px; 
+    text-align: left; 
+    color: var(--jp-text-dark);
+}
+th { 
+    background-color: #f8f8f8; 
+    font-weight: 600;
+    color: var(--jp-dark-blue);
+}
+.right-align { 
+    text-align: right; 
+}
+.faturamento-total-row td {
+    background-color: #e9ecef;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.total-row td { 
+    font-weight: bold; 
+    background-color: #fdece2;
+}
+.summary-row td { 
+    font-weight: bold; 
+    background-color: var(--jp-dark-blue);
+    color: var(--white);
+}
+.impacto-percentual {
+    font-weight: bold;
+    color: #c0392b;
+}
+.explanation-box {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.9em;
+    color: #495057;
+}
+.explanation-box h3 {
+    margin-top: 0;
+    color: var(--jp-dark-blue);
+    font-size: 1.2em;
+}
+.explanation-box p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+.explanation-box div {
+    margin-bottom: 10px;
+}
+.explanation-box code {
+    background-color: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
