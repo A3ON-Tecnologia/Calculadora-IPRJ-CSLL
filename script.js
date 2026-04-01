@@ -356,7 +356,7 @@ function apresentarAoCliente(autoPrint = false, autoDownloadPdf = false) {
     const dados = getSimulationSnapshot();
     const dataAtual = new Date().toLocaleDateString('pt-BR');
     const win = window.open('', '_blank');
-    const logoSrc = 'j:/Público/2. Materiais Padrão JP/Documentos Padrão 2024/LOGOS/logo sem fundo/logo-jp-2023_Prancheta 1 cópia 7.png';
+    const logoSrc = './logo.png';
 
     win.document.write(`
         <html lang="pt-BR">
