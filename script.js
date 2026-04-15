@@ -253,7 +253,7 @@ function exportarParaPDF() {
             <div class="section-header">Quadro Comparativo de Impostos</div>
             <table>
                 <thead>
-                    <tr><th>Descrição Técnica</th><th class="right">Cenário Atual</th><th class="right">Nova Regra (LC 224)</th></tr>
+                    <tr><th>Descrição Técnica</th><th class="right">Cenário Anterior</th><th class="right">Nova Regra (LC 224)</th></tr>
                 </thead>
                 <tbody>
                     <tr><td class="bold">Base de Cálculo IRPJ</td><td class="right">${document.getElementById('baseIrpjAntes').textContent}</td><td class="right">${document.getElementById('baseIrpjDepois').textContent}</td></tr>
@@ -766,7 +766,7 @@ function apresentarAoCliente(autoPrint = false, autoDownloadPdf = false) {
                     <div class="slide-content">
                         <div class="eyebrow" style="color: var(--jp-orange);">Resumo Financeiro</div>
                         <h2>O que muda no resultado</h2>
-                        <p class="section-text">A simulação compara o cenário atual com a nova regra aplicada sobre a base presumida, evidenciando o aumento projetado na carga tributária total.</p>
+                        <p class="section-text">A simulação compara o cenário anterior com a nova regra aplicada sobre a base presumida, evidenciando o aumento projetado na carga tributária total.</p>
 
                         <div class="metrics">
                             <div class="metric-card">
@@ -777,7 +777,7 @@ function apresentarAoCliente(autoPrint = false, autoDownloadPdf = false) {
                             <div class="metric-card featured">
                                 <div class="metric-label">Diferença a pagar</div>
                                 <div class="metric-value impact">${dados.diferencaFinal.split('(')[0].trim()}</div>
-                                <div class="metric-note">Valor incremental estimado entre o cenário atual e a nova regra.</div>
+                                <div class="metric-note">Valor incremental estimado entre o cenário anterior e a nova regra.</div>
                             </div>
                             <div class="metric-card">
                                 <div class="metric-label">Impacto sobre o faturamento</div>
@@ -806,14 +806,14 @@ function apresentarAoCliente(autoPrint = false, autoDownloadPdf = false) {
                 <section class="slide">
                     <div class="slide-content">
                         <div class="eyebrow" style="color: var(--jp-orange);">Comparativo</div>
-                        <h2>Cenário atual x nova regra</h2>
+                        <h2>Cenário anterior x nova regra</h2>
                         <p class="section-text">A tabela abaixo resume os totais já apurados na calculadora e apresenta o deslocamento entre o modelo atual e a projeção após a mudança.</p>
 
                         <table class="comparison-table">
                             <thead>
                                 <tr>
                                     <th>Indicador</th>
-                                    <th>Cenário atual</th>
+                                    <th>Cenário anterior</th>
                                     <th>Nova regra</th>
                                 </tr>
                             </thead>
