@@ -391,7 +391,6 @@ function apresentarAoCliente(autoPrint = false, autoDownloadPdf = false) {
                     overflow: hidden;
                     box-shadow: 0 18px 50px rgba(1, 9, 105, 0.10);
                     border: 1px solid rgba(1, 9, 105, 0.08);
-                    min-height: 680px;
                     position: relative;
                 }
                 .slide::before {
@@ -786,20 +785,6 @@ function apresentarAoCliente(autoPrint = false, autoDownloadPdf = false) {
                             </div>
                         </div>
 
-                        <div class="panel dark" style="margin-top: 26px;">
-                            <h3>Leitura executiva</h3>
-                            <div class="big-number">${dados.percentualImpacto}</div>
-                            <div class="list">
-                                <div class="list-item">
-                                    <strong>Mensagem principal</strong>
-                                    <span>A nova regra eleva o custo tributário estimado no período analisado.</span>
-                                </div>
-                                <div class="list-item">
-                                    <strong>Ponto de atenção</strong>
-                                    <span>O valor adicional projetado é de <span class="accent">${dados.diferencaFinal.split('(')[0].trim()}</span>.</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </section>
 
